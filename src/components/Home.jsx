@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Code, Terminal, Cpu, Zap, Github, Linkedin, Mail, ArrowDown, Globe } from 'lucide-react';
+import { Code, Terminal, Cpu, Zap, Github, Linkedin, Mail, ArrowDown, Globe, Instagram } from 'lucide-react';
 import Presentacion from './Presentacion';
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,7 +16,7 @@ useEffect(() => {
   return () => window.removeEventListener('mousemove', handleMouseMove);
 }, []);
 
-  const skills = ['React', 'Node.js', 'Python', 'TypeScript', 'Next.js', 'MongoDB'];
+  const skills = ['React', 'Node.js', 'TypeScript', 'Next.js', 'MongoDB'];
 
   return (
     <>
@@ -136,27 +136,35 @@ useEffect(() => {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                  <button className="group flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-black font-semibold rounded-full hover:from-green-400 hover:to-green-500 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-green-500/30">
+                 <a 
+                     href="https://github.com/MarianoTorresMari"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-black font-semibold rounded-full hover:from-green-400 hover:to-green-500 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-green-500/30">
                     <span>Ver Proyectos</span>
                     <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
-                  </button>
+                   </a>
                   
-                  <button className="flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-green-500/50 text-green-400 font-semibold rounded-full hover:bg-green-500/10 hover:border-green-400 transition-all duration-300 transform hover:scale-105">
-                    <Mail className="w-4 h-4" />
-                    <span>Contactar</span>
-                  </button>
+                  <a 
+  href="mailto:mariano.torres@gmail.com?subject=Consulta%20desde%20portfolio&body=Hola%20Mariano,%0A%0AMe%20interesa%20contactarte%20sobre..."
+  className="flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-green-500/50 text-green-400 font-semibold rounded-full hover:bg-green-500/10 hover:border-green-400 transition-all duration-300 transform hover:scale-105"
+>
+  <Mail className="w-4 h-4" />
+  <span>Contactar</span>
+</a>
                 </div>
 
                 {/* Social Links */}
                 <div className="flex justify-center gap-6">
                   {[
-                    { icon: Github, href: '#', label: 'GitHub' },
-                    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                    { icon: Globe, href: '#', label: 'Website' }
+                    { icon: Instagram, href: "https://www.instagram.com/mariano_t.m/", label: 'Instagram'},
+                    { icon: Linkedin, href: 'https://www.linkedin.com/in/marianotorresmari/', label: 'LinkedIn' },
+                    { icon: Globe, href: 'https://marianotorresmari.netlify.app/', label: 'Website' }
                   ].map(({ icon: Icon, href, label }) => (
                     <a
                       key={label}
                       href={href}
+                      target='_blank'
                       className="group p-3 bg-green-500/10 border border-green-500/30 rounded-full hover:bg-green-500/20 hover:border-green-400 transition-all duration-300 transform hover:scale-110 hover:rotate-12"
                       aria-label={label}
                     >
