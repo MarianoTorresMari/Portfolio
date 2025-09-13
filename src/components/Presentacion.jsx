@@ -265,10 +265,15 @@ useEffect(() => {
 
           {/* Bottom CTA */}
           <div className="text-center mt-16">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500/20 to-green-400/20 border border-green-500/30 rounded-full">
-              <Coffee className="w-5 h-5 text-green-400" />
-              <span className="text-green-300 font-mono">¿Hablamos de tu próximo proyecto?</span>
-            </div>
+            <a
+              href="https://wa.me/5492617590562?text=Hola%21%20Me%20interesa%20hablar%20contigo%20sobre%20un%20proyecto%20de%20desarrollo%20web.%20Vi%20tu%20portfolio%20y%20me%20gusta%20tu%20trabajo.%20%C2%BFPodr%C3%ADamos%20coordinar%20una%20reuni%C3%B3n%20para%20discutir%20los%20detalles%3F"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500/20 to-green-400/20 border border-green-500/30 rounded-full hover:from-green-500/30 hover:to-green-400/30 hover:border-green-400/50 hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300 group"
+            >
+              <Coffee className="w-5 h-5 text-green-400 group-hover:scale-110 transition-transform duration-300" />
+              <span className="text-green-300 font-mono group-hover:text-green-200 transition-colors duration-300">¿Hablamos de tu próximo proyecto?</span>
+            </a>
           </div>
 
         </div>
