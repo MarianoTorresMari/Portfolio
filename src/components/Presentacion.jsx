@@ -35,53 +35,64 @@ function Presentacion() {
     { icon: Code2, label: 'Frontend', value: 'Especialidad' },
     { icon: Coffee, label: '2+ años', value: 'Experiencia' }
   ]
+// Reemplaza el useEffect actual con este:
+useEffect(() => {
+  setIsVisible(true)
+  
+  const handleMouseMove = (e) => {
+    setMousePosition({ x: e.clientX, y: e.clientY })
+  }
 
-  useEffect(() => {
-    setIsVisible(true)
-    
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+  const skillInterval = setInterval(() => {
+    setCurrentSkill(prev => (prev + 1) % frontendSkills.length)
+  }, 2000)
 
-    const skillInterval = setInterval(() => {
-      setCurrentSkill(prev => (prev + 1) % frontendSkills.length)
-    }, 2000)
-
-    window.addEventListener('mousemove', handleMouseMove)
-    
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      clearInterval(skillInterval)
-    }
-  }, [])
-
+  window.addEventListener('mousemove', handleMouseMove)
+  
+  return () => {
+    window.removeEventListener('mousemove', handleMouseMove)
+    clearInterval(skillInterval)
+  }
+}, [frontendSkills.length]) // Agregamos la dependencia
   return (
     <div className="min-h-screen bg-black text-green-400 relative overflow-hidden py-20">
-      {/* Animated background */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.15) 0%, transparent 50%)`
-        }} />
-        <div className="absolute inset-0 bg-gradient-to-tr from-green-900/10 via-transparent to-green-700/10" />
-      </div>
+     {/* Animated background - Optimized */}
+<div className="absolute inset-0 opacity-20">
+  <div 
+    className="absolute inset-0 transition-all duration-1000 ease-out" 
+    style={{
+      backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.15) 0%, transparent 50%)`
+    }} 
+  />
+  <div className="absolute inset-0 bg-gradient-to-tr from-green-900/10 via-transparent to-green-700/10" />
+  
+  {/* Gradiente animado con CSS */}
+  <div 
+    className="absolute inset-0"
+    style={{
+      background: `
+        radial-gradient(circle at 70% 20%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(34, 197, 94, 0.06) 0%, transparent 50%)
+      `,
+      animation: 'backgroundPulse 6s ease-in-out infinite'
+    }}
+  />
+</div>
 
-      {/* Floating elements */}
-      <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
-            }}
-          >
-            <div className="w-2 h-2 bg-green-400/30 rounded-full" />
-          </div>
-        ))}
-      </div>
+     {/* Floating elements - Optimized */}
+<div className="absolute inset-0 pointer-events-none">
+  {[...Array(12)].map((_, i) => (
+    <div
+      key={i}
+      className="absolute w-2 h-2 bg-green-400/30 rounded-full"
+      style={{
+        left: `${15 + Math.random() * 70}%`,
+        top: `${15 + Math.random() * 70}%`,
+        animation: `floatSlow ${4 + Math.random() * 3}s ease-in-out infinite ${Math.random() * 3}s`
+      }}
+    />
+  ))}
+</div>
 
       <div className="relative z-10 container mx-auto px-6">
         <div className="max-w-6xl mx-auto">

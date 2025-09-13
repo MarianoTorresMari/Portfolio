@@ -5,53 +5,62 @@ const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  useEffect(() => {
-    setIsVisible(true);
-    
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+useEffect(() => {
+  setIsVisible(true);
+  
+  const handleMouseMove = (e) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  window.addEventListener('mousemove', handleMouseMove);
+  return () => window.removeEventListener('mousemove', handleMouseMove);
+}, []);
 
   const skills = ['React', 'Node.js', 'Python', 'TypeScript', 'Next.js', 'MongoDB'];
 
   return (
     <>
       <div className="min-h-screen bg-black text-green-400 relative overflow-hidden">
-        {/* Animated background grid */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.1) 0%, transparent 50%)`
-          }} />
-          <div className="absolute inset-0 bg-gradient-to-br from-green-900/10 via-transparent to-green-800/10" />
-          <svg className="w-full h-full">
-            <defs>
-              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(34, 197, 94, 0.1)" strokeWidth="1"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
-        </div>
+  <div 
+    className="absolute inset-0 transition-all duration-1000 ease-out" 
+    style={{
+      backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.15) 0%, transparent 50%)`
+    }} 
+  />
+  <div className="absolute inset-0 bg-gradient-to-br from-green-900/10 via-transparent to-green-800/10" />
+  
+  {/* Grid con animación CSS pura */}
+  <div className="absolute inset-0 opacity-30">
+    <div 
+      className="w-full h-full"
+      style={{
+        backgroundImage: `
+          linear-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(34, 197, 94, 0.1) 1px, transparent 1px)
+        `,
+        backgroundSize: '40px 40px',
+        animation: 'gridPulse 4s ease-in-out infinite'
+      }}
+    />
+  </div>
+</div>
 
-        {/* Floating particles */}
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-green-400 rounded-full opacity-30 animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`
-              }}
-            />
-          ))}
-        </div>
+
+       {/* Floating particles - Optimized */}
+<div className="absolute inset-0 pointer-events-none">
+  {[...Array(15)].map((_, i) => (
+    <div
+      key={i}
+      className="absolute w-1 h-1 bg-green-400 rounded-full opacity-40"
+      style={{
+        left: `${20 + Math.random() * 60}%`,
+        top: `${20 + Math.random() * 60}%`,
+        animation: `float ${3 + Math.random() * 2}s ease-in-out infinite ${Math.random() * 2}s`
+      }}
+    />
+  ))}
+</div>
 
         <div className="relative z-10 container mx-auto px-6 py-12 min-h-screen flex items-center">
           <div className="w-full max-w-4xl mx-auto">

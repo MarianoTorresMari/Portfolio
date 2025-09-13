@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@keyframes gridPulse {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.6; 
+    transform: scale(1.01); 
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) scale(0.8); 
+    opacity: 0.3; 
+  }
+  50% { 
+    transform: translateY(-20px) scale(1.2); 
+    opacity: 0.8; 
+  }
+}
+@keyframes backgroundPulse {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: scale(1) rotate(0deg); 
+  }
+  33% { 
+    opacity: 0.8; 
+    transform: scale(1.05) rotate(1deg); 
+  }
+  66% { 
+    opacity: 0.4; 
+    transform: scale(0.95) rotate(-1deg); 
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% { 
+    transform: translate(0, 0) scale(0.8); 
+    opacity: 0.2; 
+  }
+  25% { 
+    transform: translate(10px, -15px) scale(1); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: translate(-5px, -25px) scale(1.2); 
+    opacity: 0.8; 
+  }
+  75% { 
+    transform: translate(-10px, -10px) scale(0.9); 
+    opacity: 0.4; 
+  }
+}
+
+/* Si quieres que las cards tengan un efecto sutil adicional */
+@keyframes cardGlow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.1); 
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.15); 
+  }
+}
