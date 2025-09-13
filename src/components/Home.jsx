@@ -145,13 +145,10 @@ useEffect(() => {
                     <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
                    </a>
                   
-                  <a 
-  href="mailto:mariano.torres@gmail.com?subject=Consulta%20desde%20portfolio&body=Hola%20Mariano,%0A%0AMe%20interesa%20contactarte%20sobre..."
-  className="flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-green-500/50 text-green-400 font-semibold rounded-full hover:bg-green-500/10 hover:border-green-400 transition-all duration-300 transform hover:scale-105"
->
-  <Mail className="w-4 h-4" />
-  <span>Contactar</span>
-</a>
+                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=marianomisael06@gmail.com&su=Consulta%20desde%20portfolio" target="_blank"  rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-green-500/50 text-green-400 font-semibold rounded-full hover:bg-green-500/10 hover:border-green-400 transition-all duration-300 transform hover:scale-105">
+                  <Mail className="w-4 h-4" />
+                   <span>Contactar</span>
+                </a>
                 </div>
 
                 {/* Social Links */}
