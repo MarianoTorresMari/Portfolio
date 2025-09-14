@@ -12,7 +12,8 @@ import {
   Flag,
   Lightbulb,
   Rocket,
-  Star
+  Star,
+  GraduationCap
 } from 'lucide-react'
 import { useTheme } from './ThemeContext'
 import AdvancedParticles from './AdvancedParticles'
@@ -133,6 +134,18 @@ useEffect(() => {
                     <span>
                       Soy un desarrollador de <strong className={`${theme.classes.textSecondary} font-semibold`}>19 años</strong> nacido y criado en Argentina, 
                       con una pasión desbordante por la tecnología y el desarrollo web.
+                    </span>
+                  </p>
+                  <p className="flex items-start gap-3">
+                    <GraduationCap className={`w-5 h-5 ${theme.classes.text} mt-0.5 flex-shrink-0`} />
+                     <span>
+                      Mi formación académica incluye la <strong className={`${theme.classes.textSecondary} font-semibold`}>educación secundaria completa</strong>, 
+                      cursada en la Escuela Normal Manuel Belgrano de Santiago del Estero Capital (nivel inicial, primario y secundario hasta 2do año) 
+                      y finalizada en el Instituto San Vicente Ferrer de Godoy Cruz, Mendoza (3er a 5to año). Paralelamente, 
+                      completé mi formación en idioma inglés en ASICANA - Centro Binacional Argentino Norteamericano de Santiago del Estero, 
+                      progresando desde nivel inicial hasta secundario durante el período 2013-2022. Recientemente consolidé mi preparación técnica 
+                      mediante la finalización de un <strong className={`${theme.classes.textSecondary} font-semibold`}>programa intensivo Full Stack 
+                      de 9 meses de duración en RollingCode School</strong>, Tucumán, especializándome en tecnologías de desarrollo web modernas.
                     </span>
                   </p>
 
